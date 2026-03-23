@@ -25,4 +25,10 @@ public class MessageController {
         producerService.send(message);
         return ResponseEntity.ok(Map.of("status", "sent", "message", message));
     }
+
+    @PostMapping("/order")
+    public ResponseEntity<Map<String, String>> sendByOrder(String message,String orderId) {
+        producerService.sendByOrder(message, orderId);
+        return ResponseEntity.ok(Map.of("status", "sent", "message", message));
+    }
 }
